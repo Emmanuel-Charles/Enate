@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.58">
+    <link rel="stylesheet" href="/main.af46ece4.css">
+    <link rel="shortcut icon" href="/favicon.26242483.ico" type="image/x-icon">
+    <title>Dashboard</title>
+    <script src="/more.e818ff72.js"></script>
+    <script src="/Mine.e31bb0bc.js"></script>
+</head>
+<body id="dashboard-body">
+    <header>
+        <div class="logo">
+            <h1 class="logo-text"> <a href="/index.html">ENATE</a> </h1>
+        </div>
+        <h1 class="about-header">Dashboard</h1>
+    
+        
+    </header>
+
+    <div id="colour">
+
+    </div>
+    <script>var c = document.createElement("canvas");
+c.id = "canvasBackground";
+var parent = document.getElementById("colour");
+console.log(document.getElementById("colour"));
+document.getElementById("colour").appendChild(c);
+var ctx = document.getElementById("canvasBackground").getContext("2d");
+var dotCount;
+var dotArray = [];
+var radius, x, y;
+
+function createDots(dotCount) {
+  for (var i = 0; i < dotCount; i++) {
+    radius = Math.floor(Math.random() * 3 + 1);
+    x = Math.random() * (c.width - radius * 2) + radius;
+    y = Math.random() * (c.height - radius * 2) + radius;
+    xVelocity = (Math.random() * radius - 1) * 4;
+    yVelocity = (Math.random() * radius - 1) * 4;
+    fillColor = "white";
+    shadowBlur = 10;
+    shadowColor = "white";
+    globalAlpha = (Math.random() * 5 + 5) / 10;
+    dotArray.push(new Dot(radius, x, y, xVelocity, yVelocity, fillColor, shadowBlur, shadowColor, globalAlpha));
+  }
+
+  animate();
+}
+
+function Dot(r, x, y, xV, yV, fC, sB, sC, gA) {
+  this.radius = r;
+  this.x = x;
+  this.y = y;
+  this.xVelocity = xV;
+  this.yVelocity = yV;
+  this.fillColor = fC;
+  this.shadowBlur = sB;
+  this.shadowColor = sC;
+  this.globalAlpha = gA;
+
+  this.updateDots = function () {
+    if (x + this.radius > c.width || x - this.radius < 0) this.xVelocity = -this.xVelocity;
+    if (y + this.radius > c.height || y - this.radius < 0) this.yVelocity = -this.yVelocity;
+    x += this.xVelocity;
+    y += this.yVelocity;
+    this.drawDots();
+  };
+
+  this.drawDots = function () {
+    ctx.beginPath();
+    ctx.arc(x, y, this.radius, 0, Math.PI * 2, false);
+    ctx.shadowBlur = this.shadowBlur;
+    ctx.shadowColor = this.shadowColor;
+    ctx.globalAlpha = this.globalAlpha;
+    ctx.fillStyle = this.fillColor;
+    ctx.fill();
+  };
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, c.width, c.height);
+
+  for (var i = 0; i < dotArray.length; i++) {
+    dotArray[i].updateDots();
+  }
+}
+
+function setValues() {
+  c.width = parent.offsetWidth;
+  c.height = parent.offsetHeight;
+  dotArray = [];
+  dotCount = Math.floor(c.width / 2 * (c.height / 2) / 1000);
+  createDots(dotCount);
+}
+
+document.body.onload = function () {
+  setValues();
+};
+
+window.addEventListener("resize", function () {
+  setValues();
+});</script>
+
+    <section class="dashboard-main">
+    <header class="welcome">
+        <h2>Hi There!</h2>
+    </header>
+
+    <aside class="dash-menu">
+        <nav class="dash-nav">
+            <div class="dash-nav">
+                <div class="menu"><h3>Menu</h3></div>
+                <ul>
+                    <li class="nav-list"><a href="/index.html">Home</a></li>
+                    <li class="nav-list"><a href="/About.html">About us</a></li>
+                    <li class="nav-list"><a href="/Stores.html">Stores Location</a></li>
+                    <li class="nav-list"><a href="/Contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <div class="dash-main">
+        <section class="first">
+            <div class="total"><h3>0</h3>
+            <p>Total Orders</p></div>
+            <div class="progress"><h3>0</h3>
+            <p>Orders in Progress</p></div>
+            <div class="returned"><h3>0</h3>
+            <p>Returned Orders</p></div>
+            <div class="delivered"><h3>0</h3>
+            <p>Delivered Orders</p></div>
+        </section>
+
+        <section class="reminder">
+            <h3>
+                Shipping Details
+            </h3>
+            <p>Velit ullam eveniet voluptatibus veritatis dolorum tenetur est quas, et inventore tempore natus illum beatae labore quam saepe iusto itaque sint eligendi dolor cupiditate, id cum corporis eos consequuntur!</p>
+            <ul>
+                <li>Praesentium earum maxime aspernatur temporibus illum rem expedita porro, animi ipsa dolor quasi labore nostrum corrupti aperiam autem.</li>
+                <li>Debitis odit rerum eos alias at dolorum ratione explicabo, in cumque culpa obcaecati expedita quas esse dolorem id officia laboriosam.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perspiciatis quas vel ea. Est officiis earum et blanditiis soluta.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus minus. Voluptatum perspiciatis officiis quas vel ea. Est officiis earum.</li>
+            </ul>
+
+        </section>
+
+        <section class="coupon">
+            <h3>Redeem a coupon code</h3>
+            <p>Enter your coupon code below to claim your offer <br>
+                <input type="text" id="dash-coupon" placeholder="Enter Coupon Code">
+                <input type="button" class="dashbtn" value="Redeem">
+            </p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo necessitatibus tempora pariatur quae dolorem beatae dolore dolor ad, est libero! Molestiae earum accusantium a temporibus. Ea eveniet recusandae sequi laboriosam perspiciatis a.</p>
+            
+
+        </section>
+
+        <section class="recent">
+            <h3>Sponsored Products</h3>
+            <div class="tst">
+                <a href="/Product.html">
+                    <div class="products alt-products">
+                        <img src="/1.25a24c3a.jpg" alt="Men shoes" class="shoes-img">
+                        <h4 class="product-desc-head">Enate MN-1 deluxe</h4>
+                        <h5 class="product-desc-head">$149.95</h5>
+                        <p class="product-desc">
+                            Elorem repellat aliquid quam porro distinctio molestias corporis harum. Expedita assumenda dolores.
+                        </p>
+                    </div>
+                </a>
+            
+                <a href="/Product.html">
+                    <div class="products alt-products">
+                        <img src="/1.a516f3f8.jpg" alt="Women Shoes" class="shoes-img">
+                        <h4 class="product-desc-head">Enate WN-1 Phantom</h4>
+                        <h5 class="product-desc-head">$214.95</h5>
+                        <p class="product-desc">
+                            Sint odit explicabo. ad ab eaque deleniti minus, Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit.
+                            Aperiam pariatur.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+        </section>
+    </div>
+    </section>
+    <footer class="dash-footer">
+        <h4 class="footer-text"> Copyright &copy; 2021 Nate Stores</h4>
+    </footer>
+
+    
+</body>
+</html>
