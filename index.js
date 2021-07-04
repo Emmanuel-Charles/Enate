@@ -1,5 +1,4 @@
 import "./more.js";
-import $ from "jquery";
 
 window.addEventListener("scroll", function () {
   let catergoryMEn = document.getElementById("Men");

@@ -14057,10 +14057,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 require("./more.js");
 
-var _jquery = _interopRequireDefault(require("jquery"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 window.addEventListener("scroll", function () {
   var catergoryMEn = document.getElementById("Men");
 
@@ -14234,7 +14230,7 @@ var redirecttimer = setInterval(function () {
   timeleft -= 1;
   document.getElementById("count").innerHTML = timeleft + 1;
 }, 1000);
-},{"./more.js":"more.js","jquery":"../../node_modules/jquery/dist/jquery.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./more.js":"more.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
