@@ -1,4 +1,4 @@
-import $ from "jquery";
+import $ from "./node_modules/@types/jquery/index";
 import slick from "./slick/slick/slick";
 
 $(document).ready(function () {
