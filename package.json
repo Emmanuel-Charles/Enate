@@ -14,7 +14,8 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^5.0.1",
     "jquery": "^3.6.0",
-    "jquery-ui-dist": "^1.12.1"
+    "jquery-ui-dist": "^1.12.1",
+    "slick-carousel": "file:slick"
   },
   "devDependencies": {
     "sass": "^1.32.13",

@@ -41,18 +41,20 @@ $(document).ready(function () {
     lazyLoad: "ondemand",
   });
 
-  $("#popbtn").hover(function () {
-    popup();}, function(){
+  $("#popbtn").hover(
+    function () {
+      popup();
+    },
+    function () {
       unpop();
-    });
-  function popup(){
-    $("#myPopup")
-      .addClass("show")
-  };
-  function unpop(){
-    $("#myPopup")
-      .removeClass("show")
-  };
+    }
+  );
+  function popup() {
+    $("#myPopup").addClass("show");
+  }
+  function unpop() {
+    $("#myPopup").removeClass("show");
+  }
 
   $(".rating ul li").on("click", function () {
     let li = $(this),
@@ -125,7 +127,6 @@ $(document).ready(function () {
     $("#review-prompt").html(
       "That's great, You need to be logged in and to have purchased this product to be eligible to leave a public review on it."
     );
-    
   }
 
   $(".rev5").on("click", function () {
@@ -137,9 +138,6 @@ $(document).ready(function () {
       "Amazing! We are glad you enjoyed it but you still need to be logged in and to have purchased this product to be eligible to leave a public review on it."
     );
   }
-
-
-
 
   // ---------------commenting-----------------------
   $("#rev-prd-cmt").on("click", function () {
@@ -166,18 +164,20 @@ $(document).ready(function () {
         $(".lid").removeClass("lid-active");
       });
 
-      comprompt();
+    comprompt();
   });
 
-  function comprompt(){
-    $("#comment-prompt").addClass("comprompt").on("animationend", function(){
-      $("#comment-prompt").removeClass("comprompt");
-    });
-  };
+  function comprompt() {
+    $("#comment-prompt")
+      .addClass("comprompt")
+      .on("animationend", function () {
+        $("#comment-prompt").removeClass("comprompt");
+      });
+  }
 
   $('input[name="commnt"]').attr("disabled", true);
 
-  $("#comment").on('input', function (e) {
+  $("#comment").on("input", function (e) {
     check();
   });
 
@@ -190,18 +190,14 @@ $(document).ready(function () {
     }
   }
 
-
   $(".start").addClass("drawn");
 
-  
-  $(".dashbtn").on("click", function(){
+  $(".dashbtn").on("click", function () {
     $("#dash-coupon").attr(
       "placeholder",
       "Please enter a valid coupon code..."
     );
     $("#dash-coupon").val("");
-  }); 
-  
-
+  });
 });
 

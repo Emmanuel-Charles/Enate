@@ -117,12 +117,171 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"slick/slick/slick-theme.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
+})({"shop-center.js":[function(require,module,exports) {
+setTimeout(function () {
+  document.getElementById("preload").classList.remove("preload");
+}, 2000);
 
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./ajax-loader.gif":[["ajax-loader.b276ae49.gif","slick/slick/ajax-loader.gif"],"slick/slick/ajax-loader.gif"],"./fonts\\slick.eot":[["slick.3f9c5f50.eot","slick/slick/fonts/slick.eot"],"slick/slick/fonts/slick.eot"],"./fonts\\slick.woff":[["slick.e9ec0d49.woff","slick/slick/fonts/slick.woff"],"slick/slick/fonts/slick.woff"],"./fonts\\slick.ttf":[["slick.da73bd87.ttf","slick/slick/fonts/slick.ttf"],"slick/slick/fonts/slick.ttf"],"./fonts\\slick.svg":[["slick.d2efe1d9.svg","slick/slick/fonts/slick.svg"],"slick/slick/fonts/slick.svg"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var TxtType = function TxtType(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = "";
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function () {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) {
+    delta /= 2;
+  }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === "") {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function () {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function () {
+  var elements = document.getElementsByClassName("typewrite");
+
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute("data-type");
+    var period = elements[i].getAttribute("data-period");
+
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+
+  var css = document.createElement("style");
+  css.innerHTML = ".typewrite > .wrap { border-right: 2px solid #017e83; animation: flash 1s linear infinite} @keyframes flash{50% {border-right:rgba(1, 126, 131, 0);}}";
+  css.setAttribute("type", "text/css");
+  document.body.appendChild(css);
+};
+
+window.addEventListener("scroll", function () {
+  var catergoryMEn = document.getElementById("Men");
+
+  if (window.pageYOffset > 251) {
+    catergoryMEn.classList.add("shift-men");
+  } else {
+    catergoryMEn.classList.remove("shift-men");
+  }
+
+  if (window.pageYOffset > 1151) {
+    document.getElementById("Men").style.position = "static";
+  } else {
+    document.getElementById("Men").style.position = "sticky";
+  }
+});
+window.addEventListener("scroll", function () {
+  var catergoryWomen = document.getElementById("Women");
+
+  if (window.pageYOffset > 1354) {
+    catergoryWomen.classList.add("shift-women");
+  } else {
+    catergoryWomen.classList.remove("shift-women");
+  }
+
+  if (window.pageYOffset > 2246) {
+    document.getElementById("Women").style.position = "static";
+  } else {
+    document.getElementById("Women").style.position = "sticky";
+  }
+});
+window.addEventListener("scroll", function () {
+  var catergoryChildren = document.getElementById("Children");
+
+  if (window.pageYOffset > 2454) {
+    catergoryChildren.classList.add("shift-children");
+  } else {
+    catergoryChildren.classList.remove("shift-children");
+  }
+
+  if (window.pageYOffset > 3354) {
+    document.getElementById("Children").style.position = "static";
+  } else {
+    document.getElementById("Children").style.position = "sticky";
+  }
+});
+window.addEventListener("scroll", function () {
+  var catergorySlides = document.getElementById("Slides");
+
+  if (window.pageYOffset > 3554) {
+    catergorySlides.classList.add("shift-slides");
+  } else {
+    catergorySlides.classList.remove("shift-slides");
+  }
+
+  if (window.pageYOffset > 4486) {
+    document.getElementById("Slides").style.position = "static";
+  } else {
+    document.getElementById("Slides").style.position = "sticky";
+  }
+});
+window.addEventListener("scroll", function () {
+  var catergorySneakers = document.getElementById("Sneakers");
+
+  if (window.pageYOffset > 4654) {
+    catergorySneakers.classList.add("shift-sneakers");
+  } else {
+    catergorySneakers.classList.remove("shift-sneakers");
+  }
+
+  if (window.pageYOffset > 5586) {
+    document.getElementById("Sneakers").style.position = "static";
+  } else {
+    document.getElementById("Sneakers").style.position = "sticky";
+  }
+});
+window.addEventListener("scroll", function () {
+  var catergoryFormal = document.getElementById("Formal");
+
+  if (window.pageYOffset > 5756) {
+    catergoryFormal.classList.add("shift-formal");
+  } else {
+    catergoryFormal.classList.remove("shift-formal");
+  }
+
+  if (window.pageYOffset > 6686) {
+    document.getElementById("Formal").style.position = "static";
+  } else {
+    document.getElementById("Formal").style.position = "sticky";
+  }
+});
+window.addEventListener("scroll", function () {
+  var leftNav = document.getElementById("shop-center-aside");
+
+  if (window.pageYOffset > 6290) {
+    leftNav.classList.add("stick");
+  } else {
+    leftNav.classList.remove("stick");
+  }
+});
+},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -326,144 +485,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-loader.js":[function(require,module,exports) {
-var getBundleURL = require('./bundle-url').getBundleURL;
-
-function loadBundlesLazy(bundles) {
-  if (!Array.isArray(bundles)) {
-    bundles = [bundles];
-  }
-
-  var id = bundles[bundles.length - 1];
-
-  try {
-    return Promise.resolve(require(id));
-  } catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND') {
-      return new LazyPromise(function (resolve, reject) {
-        loadBundles(bundles.slice(0, -1)).then(function () {
-          return require(id);
-        }).then(resolve, reject);
-      });
-    }
-
-    throw err;
-  }
-}
-
-function loadBundles(bundles) {
-  return Promise.all(bundles.map(loadBundle));
-}
-
-var bundleLoaders = {};
-
-function registerBundleLoader(type, loader) {
-  bundleLoaders[type] = loader;
-}
-
-module.exports = exports = loadBundlesLazy;
-exports.load = loadBundles;
-exports.register = registerBundleLoader;
-var bundles = {};
-
-function loadBundle(bundle) {
-  var id;
-
-  if (Array.isArray(bundle)) {
-    id = bundle[1];
-    bundle = bundle[0];
-  }
-
-  if (bundles[bundle]) {
-    return bundles[bundle];
-  }
-
-  var type = (bundle.substring(bundle.lastIndexOf('.') + 1, bundle.length) || bundle).toLowerCase();
-  var bundleLoader = bundleLoaders[type];
-
-  if (bundleLoader) {
-    return bundles[bundle] = bundleLoader(getBundleURL() + bundle).then(function (resolved) {
-      if (resolved) {
-        module.bundle.register(id, resolved);
-      }
-
-      return resolved;
-    }).catch(function (e) {
-      delete bundles[bundle];
-      throw e;
-    });
-  }
-}
-
-function LazyPromise(executor) {
-  this.executor = executor;
-  this.promise = null;
-}
-
-LazyPromise.prototype.then = function (onSuccess, onError) {
-  if (this.promise === null) this.promise = new Promise(this.executor);
-  return this.promise.then(onSuccess, onError);
-};
-
-LazyPromise.prototype.catch = function (onError) {
-  if (this.promise === null) this.promise = new Promise(this.executor);
-  return this.promise.catch(onError);
-};
-},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js":[function(require,module,exports) {
-module.exports = function loadJSBundle(bundle) {
-  return new Promise(function (resolve, reject) {
-    var script = document.createElement('script');
-    script.async = true;
-    script.type = 'text/javascript';
-    script.charset = 'utf-8';
-    script.src = bundle;
-
-    script.onerror = function (e) {
-      script.onerror = script.onload = null;
-      reject(e);
-    };
-
-    script.onload = function () {
-      script.onerror = script.onload = null;
-      resolve();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(script);
-  });
-};
-},{}],0:[function(require,module,exports) {
-var b=require("../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-loader.js");b.register("js",require("../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js"));b.load([]);
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0], null)
-//# sourceMappingURL=/slick-theme.3b91e076.js.map
+},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","shop-center.js"], null)
+//# sourceMappingURL=/shop-center.b52bb2ac.js.map
