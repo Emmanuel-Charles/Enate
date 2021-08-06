@@ -326,7 +326,7 @@ process.chdir = function (dir) {
 process.umask = function () {
   return 0;
 };
-},{}],"node_modules/jquery/dist/jquery.js":[function(require,module,exports) {
+},{}],"../../node_modules/jquery/dist/jquery.js":[function(require,module,exports) {
 var global = arguments[3];
 var process = require("process");
 var define;
@@ -13877,7 +13877,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return _;
   };
 });
-},{"jquery":"node_modules/jquery/dist/jquery.js"}],"more.js":[function(require,module,exports) {
+},{"jquery":"../../node_modules/jquery/dist/jquery.js"}],"more.js":[function(require,module,exports) {
 "use strict";
 
 var _jquery = _interopRequireDefault(require("jquery"));
@@ -14048,7 +14048,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     (0, _jquery.default)("#dash-coupon").val("");
   });
 });
-},{"jquery":"node_modules/jquery/dist/jquery.js","./slick/slick/slick":"slick/slick/slick.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"jquery":"../../node_modules/jquery/dist/jquery.js","./slick/slick/slick":"slick/slick/slick.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -14076,7 +14076,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59712" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62274" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
