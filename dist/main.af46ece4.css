@@ -3096,6 +3096,7 @@ body {
 .actual-comments img {
   border-radius: 50px;
   margin-right: 10px;
+  height: 3em;
 }
 
 .actual-comment-box {
@@ -3291,7 +3292,7 @@ body {
   text-align: center;
   overflow: hidden;
   margin: 15px;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .dummy1-back {
