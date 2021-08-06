@@ -85,11 +85,17 @@ header {
   height: 110px;
 }
 
+.index-footer, .Store-footer, .faq-footer, .product-page-footer, .shop-center-footer, .About-footer h5{
+  font-size: 0.7em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
 .index-footer {
   border-top: 2px solid var(--Heavy-color);
   margin-top: 20px;
   position: relative;
-  top: 75.7em;
+  top: 105em;
   margin-right: 0px;
   background-color: var(--Main-color);
   height: 110px;
@@ -101,11 +107,7 @@ header {
   text-align: center;
 }
 
-.index-footer, .product-page-footer, .shop-center-footer, .About-footer h5{
-  font-size: 0.7em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-}
+
 
 .dash-footer {
   border-top: 2px solid var(--Heavy-color);
@@ -122,7 +124,7 @@ header {
     border-top: 2px solid var(--Heavy-color);
     margin-top: 20px;
     position: relative;
-    top: 75em;
+    top: 105em;
     margin-right: 0px;
     background-color: var(--Main-color);
     height: 110px;
@@ -1263,7 +1265,7 @@ h1 {
   border-top: 2px solid var(--Heavy-color);
   margin-top: 20px;
   position: relative;
-  top: 50em;
+  top: 65em;
   background-color: var(--Main-color);
   height: 110px;
 }
@@ -1405,6 +1407,7 @@ input[type="button"]:disabled {
   border: 6px double var(--secondary-color);
   width: 45%;
   background-color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   height: 45em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1437,7 +1440,7 @@ input[type="button"]:disabled {
     height: 900px;
   }
   .faq-footer {
-    top: 50em;
+    top: 65em;
   }
 }
 
