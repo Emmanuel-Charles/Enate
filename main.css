@@ -79,7 +79,7 @@ header {
   border-top: 2px solid var(--Heavy-color);
   margin-top: 20px;
   position: relative;
-  top: 350px;
+  top: 30em;
   margin-right: 0px;
   background-color: var(--Main-color);
   height: 110px;
@@ -3344,7 +3344,7 @@ body {
     border-top: 2px solid var(--Heavy-color);
     margin-top: 20px;
     position: relative;
-    top: 22em;
+    top: 30em;
     margin-right: 0px;
     background-color: var(--Main-color);
     height: 110px;
